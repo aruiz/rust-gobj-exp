@@ -9,7 +9,7 @@ pub struct Ptr<T> {
 }
 
 impl<T> Ptr<T> {
-    pub unsafe fn with_ptr(data: *mut T) -> Ptr<T> {
+    pub unsafe fn new(data: *mut T) -> Ptr<T> {
         Ptr { data: data }
     }
 }
