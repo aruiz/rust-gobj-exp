@@ -14,6 +14,15 @@ impl<T> Ptr<T> {
     }
 }
 
+impl<T> Clone for Ptr<T> {
+    fn clone(&self) -> Self {
+        unsafe {
+            gobject::g_object_ref(self.data as gtypes::gpointer);
+            Ptr { data: self.data }
+        }
+    }
+}
+
 impl<T> Deref for Ptr<T> {
     type Target = T;
 
